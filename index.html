@@ -1,0 +1,43 @@
+<html>
+  <head>
+  <script src="script.js"></script> 
+  <script>
+    
+    function validatePlate() {
+      // Get the lengths of the plate parts
+      let number = document.getElementById("input-number").value;
+      let letters = document.getElementById("input-letters").value;
+
+      if ((number.length == 4 ) && (letters.length == 3)) {
+        validationResult = isValidPlate(number + letters);
+      } else {
+        validationResult = false;
+      }
+
+      displayValidationResult(validationResult);
+    }
+
+    /*
+     * Updates the HTML element result with the passed argument 
+     */
+    function displayValidationResult(type) {
+      document.getElementById("result").innerHTML = '<b>Result</b> ' + type;
+    }
+
+    </script>
+    </head>
+    <body>
+        <h1> Spanish Plate Validator </h1>
+        <div> Please enter your plate number </div>
+        <p>
+        Number <input name="input-number" id="input-number" value="0000" pattern=".{4,4}"> </input>
+        </p>
+        <p>
+        Letters <input name="input-letters" id="input-letters" value="BBB" pattern=".{3,3}"> </input>
+        </p>
+        <p>
+        <button name='button-validate' onclick='javascript:validatePlate()'> Validate </button>
+        </p>
+        <div id="result"></div>
+    </body>
+</html>
